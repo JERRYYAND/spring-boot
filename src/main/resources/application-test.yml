@@ -1,0 +1,41 @@
+server:
+  error:
+    whitelabel:
+      enabled: true
+  session:
+    persistent: true
+  port: 81
+
+spring:
+  activemq:
+    broker-url: tcp://ac.mqtt.lubanzhang.net:61616
+    user: lbz
+    password: lbz@mq@admin@2017
+  jms:
+    pub-sub-domain: true
+    listener:
+      auto-startup: true
+      acknowledge-mode: client
+      concurrency: 1
+      max-concurrency: 1
+    template:
+      qos-enabled: true
+      delivery-mode: persistent
+      priority: 5
+      receive-timeout: 5000
+      time-to-live: 0
+      
+  jpa:
+    database: mysql
+    open-in-view: true
+    show-sql: true
+  datasource:
+    username: mq
+    password: lbz@mq2018
+    url: jdbc:mysql://172.16.0.99:13306/mq?autocommit=1&autoReconnect=true&useUnicode=true&characterEncoding=utf-8&useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+    
+logging:
+  level:
+    root: info
+    com.example: debug  

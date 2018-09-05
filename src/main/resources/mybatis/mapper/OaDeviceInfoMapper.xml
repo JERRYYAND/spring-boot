@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.didispace.dao.OaDeviceInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.didispace.entity.OaDeviceInfo" >
+    <id column="id_" property="id" jdbcType="VARCHAR" />
+    <result column="device_id" property="deviceId" jdbcType="VARCHAR" />
+    <result column="versionName" property="versionname" jdbcType="VARCHAR" />
+    <result column="personNumber" property="personnumber" jdbcType="INTEGER" />
+    <result column="attendanceNumber" property="attendancenumber" jdbcType="INTEGER" />
+    <result column="overplusStorager" property="overplusstorager" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id_, device_id, versionName, personNumber, attendanceNumber, overplusStorager, create_time, 
+    update_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from oa_device_info
+    where id_ = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from oa_device_info
+    where id_ = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insertSelective" parameterType="com.didispace.entity.OaDeviceInfo" >
+    insert into oa_device_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id_,
+      </if>
+      <if test="deviceId != null" >
+        device_id,
+      </if>
+      <if test="versionname != null" >
+        versionName,
+      </if>
+      <if test="personnumber != null" >
+        personNumber,
+      </if>
+      <if test="attendancenumber != null" >
+        attendanceNumber,
+      </if>
+      <if test="overplusstorager != null" >
+        overplusStorager,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceId != null" >
+        #{deviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="versionname != null" >
+        #{versionname,jdbcType=VARCHAR},
+      </if>
+      <if test="personnumber != null" >
+        #{personnumber,jdbcType=INTEGER},
+      </if>
+      <if test="attendancenumber != null" >
+        #{attendancenumber,jdbcType=INTEGER},
+      </if>
+      <if test="overplusstorager != null" >
+        #{overplusstorager,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.didispace.entity.OaDeviceInfo" >
+    update oa_device_info
+    <set >
+      <if test="deviceId != null" >
+        device_id = #{deviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="versionname != null" >
+        versionName = #{versionname,jdbcType=VARCHAR},
+      </if>
+      <if test="personnumber != null" >
+        personNumber = #{personnumber,jdbcType=INTEGER},
+      </if>
+      <if test="attendancenumber != null" >
+        attendanceNumber = #{attendancenumber,jdbcType=INTEGER},
+      </if>
+      <if test="overplusstorager != null" >
+        overplusStorager = #{overplusstorager,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id_ = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.didispace.entity.OaDeviceInfo" >
+    update oa_device_info
+    set device_id = #{deviceId,jdbcType=VARCHAR},
+      versionName = #{versionname,jdbcType=VARCHAR},
+      personNumber = #{personnumber,jdbcType=INTEGER},
+      attendanceNumber = #{attendancenumber,jdbcType=INTEGER},
+      overplusStorager = #{overplusstorager,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id_ = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="queryDeviceByDeviceId" resultMap="BaseResultMap">
+     select 
+    	<include refid="Base_Column_List" />
+     from oa_device_info odi 
+     where odi.device_id=#{deviceId,jdbcType=VARCHAR}
+  </select>
+</mapper>
