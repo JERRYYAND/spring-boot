@@ -27,4 +27,5 @@ public class OaDeviceInfoController {
 		oaDeviceInfoService.saveDeviceInfo(versionName, personNumber, attendanceNumber, overplusStorager);
 		return "success";
 	}
+	
 }

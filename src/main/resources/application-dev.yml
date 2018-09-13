@@ -8,9 +8,9 @@ spring:
     password: DeMcpFH52yPfCX%Z
     driver-class-name: com.mysql.jdbc.Driver
   activemq:
-    broker-url: tcp://ac.mqtt.lubanzhang.net:61616
-    user: lbz
-    password: lbz@mq@admin@2017
+    broker-url: tcp://172.16.0.99:61616
+    user: admin
+    password: admin
     in-memory: true
     pool:
       enabled: false
