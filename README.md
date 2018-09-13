@@ -1,0 +1,1 @@
+spring-boot ActiveMQ——activemq的详细说明，queue、topic的区别（精选） https://www.cnblogs.com/lemon-flm/p/7676047.html
